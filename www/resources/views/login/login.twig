@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ assets('css/common.css') }}?v={{ version() }}">
+    <link rel="stylesheet" href="{{ assets('css/login.css') }}?v={{ version() }}">
+    <title>Dojo21 | Login</title>
+</head>
+<body>
+
+<main class="container">
+    <section id="login-section" class="form text-center">
+        <form method="POST" id="login-form">
+            <h2>Login</h2>
+
+            <input autocomplete="off" class="input-default" type="email" placeholder="E-mail" id="email"
+                   name="email" value="" autofocus>
+
+            <input autocomplete="off" class="input-default" type="password" placeholder="Senha"
+                   id="password" name="password" value="">
+
+            <div>
+                <a href="#" id="logar" class="btn btn-block">Logar</a>
+                <a href="/signup" class="btn btn-block">Cadastro de usuário</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="{{ assets('libs/jquery-3.7.1.min.js') }}?v={{ version() }}" type="text/javascript"></script>
+<script src="{{ assets('js/global.js') }}?v={{ version() }}" type="text/javascript"></script>
+<script src="{{ assets('js/login.js') }}?v={{ version() }}" type="text/javascript"></script>
+
+</body>
+</html>

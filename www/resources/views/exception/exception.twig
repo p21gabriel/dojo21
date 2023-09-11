@@ -1,0 +1,20 @@
+{% extends "layout/layout" %}
+
+{% block title %}
+    Error
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ assets('css/error.css') }}?v={{ version() }}">
+{% endblock styles %}
+
+
+{% block content %}
+    <section id="error" class="text-center mt-10">
+        <h2>Opps! Infelizmente aconteceu um erro interno!</h2>
+
+        <h3>Contate o administrador e informe para eles os dados do erro:</h3>
+        <p><strong>Código</strong>: {{ $errorCode }} | <strong>Mensagem</strong>: {{ $errorMessage }}</p>
+    </section>
+{% endblock content %}
+

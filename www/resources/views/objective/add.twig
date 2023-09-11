@@ -1,0 +1,36 @@
+{% extends "layout/layout" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ assets('css/objective.css') }}?v={{ version() }}">
+{% endblock styles %}
+
+
+{% block title %}
+    Dojo21 | Adicionar objetivo
+{% endblock title %}
+
+
+{% block content %}
+    <section id="okr" class="text-center mt-10">
+        <h2>Adicionar objetivo usuário</h2>
+        <form method="POST" id="objective-form" class="form">
+            <div class="">
+                <input placeholder="Digite um título" type="text" name="title" id="title" value="">
+            </div>
+
+            <div class="">
+                <input placeholder="Descreva seu objetivo" type="text" id="description" name="description" value="">
+            </div>
+
+            <div class="mt-20">
+                <a href="#" id="save" class="btn">
+                    Enviar
+                </a>
+            </div>
+        </form>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ assets('js/objective.js') }}?v={{ version() }}" type="text/javascript"></script>
+{% endblock scripts %}

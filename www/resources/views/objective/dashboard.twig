@@ -1,0 +1,62 @@
+{% extends "layout/layout" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ assets('css/dashboard.css') }}?v={{ version() }}">
+{% endblock styles %}
+
+{% block title %}
+    Dojo21 | Dashboard
+{% endblock title %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+        <div>
+            <h2 class="text-center">OKR: OBJECTIVE KEY RESULTS</h2>
+            <p>OKR é um modelo de gestão ágil de desempenho com foco em resultados, que funciona como uma ferramenta de comunicação interna que integra as equipes através da formulação de objetivos relacionados à missão, aos valores e à estratégia corporativa</p>
+            <h4>Objetivo</h4>
+            <p>Os objetivos são definidos a nível <strong> estratégico </strong> ou operacionais. </p>
+            <h4>Resultados chave</h4>
+            <p>São medidos por milestones ou valores</p>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="objectives" class="meus-objetivos">
+        <h1 class="mb-20 text-center">Meus objetivos</h1>
+
+        <div class="objectives">
+            <?php foreach ($objectives as $objective): ?>
+            <div class="objective">
+                <div class="title">
+                    <h3><a href="/objective/{{ $objective->getId() }}/edit">{{ $objective->getTitle() }}</a></h3>
+                    <p>{{ $objective->getDescription() }}</p>
+                </div>
+
+                <hr>
+                <h4 class="text-center"><a href="/objective/{{ $objective->getId() }}/key_results">Key Results</a></h4>
+                <hr>
+
+                <?php foreach ($objective->getKeyResults() as $keyResult): ?>
+                    <div class="key_result">
+                        <div class="text-center key_result_title">
+                            <strong>
+                                <a href="/objective/{{ $objective->getId() }}/key_results/{{ $keyResult->getId() }}/edit">
+                                    {{ $keyResult->getTitle() }}
+                                </a>
+                            </strong>
+                        </div>
+
+                        <div class="key_result_type text-center">
+                            {{ $keyResult->formatType() }}
+                        </div>
+
+                        <div class="key_result_description">
+                            <strong>Descrição</strong>: {{ $keyResult->getDescription() }}
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+{% endblock content %}

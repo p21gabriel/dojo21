@@ -1,0 +1,62 @@
+{% extends "layout/layout" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ assets('css/key_result.css') }}?v={{ version() }}">
+{% endblock styles %}
+
+
+{% block title %}
+    Dojo21 | Resultados chave
+{% endblock title %}
+
+
+{% block content %}
+    <section id="okr" class="text-center">
+        <h2>Meus Key objetivos</h2>
+    </section>
+
+    <section class="mt-50">
+        <div id="adicionar" class="text-right">
+            <a class="green" href="/objective/{{ $objective->getId() }}/key_results/add">Adicionar</a>
+        </div>
+        <table class="text-center">
+            <div id="adicionar" class="text-right">
+            </div>
+            <thead>
+                <tr>
+                    <th colspan="4">{{ $objective->getTitle() }}</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($keyResults as $keyResult): ?>
+                    <tr style="border: 1px solid #ccc">
+                        <td class="text-left">{{ $keyResult->getTitle() }}</td>
+                        <td class="text-left">{{ $keyResult->formatType() }}</td>
+                        <td class="text-left">{{ $keyResult->getDescription() }}</td>
+                        <td class="text-left">
+                            <a class="yellow" href="/objective/{{ $objective->getId() }}/key_results/{{ $keyResult->getId() }}/edit">Editar</a>
+                            <a class="red delete" href="#" data-id="{{ $keyResult->getId() }}">Remover</a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <div class="mt-50">
+            <a href="/objective" class="btn btn-block">Voltar</a>
+        </div>
+    </section>
+
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ assets('js/key_results.js') }}?v={{ version() }}" type="text/javascript"></script>
+{% endblock scripts %}

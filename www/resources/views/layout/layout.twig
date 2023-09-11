@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ assets('css/common.css') }}?v={{ version() }}">
+
+    {% block styles %}{% endblock styles %}
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/objective">Objetivos</a></li>
+        <li><a href="/logout">Sair</a></li>
+    </ul>
+</nav>
+
+<main>
+    {% block content %}{% endblock content %}
+</main>
+
+<script src="{{ assets('libs/jquery-3.7.1.min.js') }}?v={{ version() }}" type="text/javascript"></script>
+<script src="{{ assets('js/global.js') }}?v={{ version() }}" type="text/javascript"></script>
+
+{% block scripts %}{% endblock scripts %}
+</body>
+</html>
+

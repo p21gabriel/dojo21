@@ -1,0 +1,70 @@
+{% extends "layout/layout" %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ assets('css/key_result.css') }}?v={{ version() }}">
+{% endblock styles %}
+
+
+{% block title %}
+    Dojo21 | Adicionar resultado chave
+{% endblock title %}
+
+
+{% block content %}
+    <section id="key_result">
+        <h1 class="text-center">Adicionar key results</h1>
+
+        <form method="POST" id="key-result-form-add" class="mt-20">
+            <div>
+                <label for="title">
+                    <span>Título</span>
+                    <input placeholder="Digite o título do seu objetivo chave" type="text" name="title" id="title" value="">
+                </label>
+            </div>
+
+            <div class="mt-20">
+                <label for="objective">
+                    <span>Objetivo</span><br>
+
+                </label>
+                <select name="objective_id" id="objective_id" class="mt-6">
+                    <option selected value="{{ $objective->getId() }}">{{ $objective->getTitle() }}</option>
+                </select>
+            </div>
+
+            <div class="mt-20">
+                <label for="description">
+                    <span>Descrição</span>
+                    <input placeholder="Forneça uma descrição" type="text" id="description" name="description">
+                </label>
+            </div>
+
+            <div class="mt-20">
+                <label for="type">
+                    <span>Tipo</span><br>
+
+
+                </label>
+                <select id="type" name="type" class="mt-6">
+                    <option value="1">Milestone</option>
+                    <option value="2">Porcentagem</option>
+                </select>
+            </div>
+
+            <div class="mt-20">
+                <a href="#" id="add" class="btn">
+                    Salvar
+                </a>
+
+                <a href="/objective/{{ $objective->getId() }}/key_results" class="btn" >
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ assets('js/key_results.js') }}?v={{ version() }}" type="text/javascript"></script>
+{% endblock scripts %}
