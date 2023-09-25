@@ -1,4 +1,4 @@
-let Objective = (() => {
+let Objective = (function() {
     let title = $("#title");
     let description = $("#description");
     let validateForm = function () {

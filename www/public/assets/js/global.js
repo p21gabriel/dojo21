@@ -1,4 +1,4 @@
-let Global = (() => {
+let Global = (function() {
     let redirect = function ($url) {
         window.location.href = $url;
     };

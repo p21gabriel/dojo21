@@ -3,11 +3,12 @@
 namespace App\Http\Api\Objective;
 
 use App\Entity\Objective\ObjectiveEntity;
+use App\Factory\Entity\Entity;
 use App\Http\Api\AbstractControllerApi;
 use App\Repository\Objective\ObjectiveRepository;
-use App\Service\Session;
+use App\Utils\Session;
 
-class ObjectiveControllerApi extends AbstractControllerApi
+class Objective extends AbstractControllerApi
 {
     /**
      * @return void
@@ -16,12 +17,10 @@ class ObjectiveControllerApi extends AbstractControllerApi
     {
         $body = $this->getParameters();
 
-        $objective = new ObjectiveEntity();
-        $objective->setUserId(Session::getUser()->getId());
-        $objective->setTitle($body->title);
-        $objective->setDescription($body->description);
+        $objectiveEntity = Entity::createEntityFromSdtClass($body, ObjectiveEntity::class);
+        $objectiveEntity->setUserId(Session::getUser()->getId());
 
-        (new ObjectiveRepository())->save($objective);
+        (new ObjectiveRepository())->save($objectiveEntity);
 
         $this->responseJson([]);
     }
@@ -33,12 +32,9 @@ class ObjectiveControllerApi extends AbstractControllerApi
     {
         $body = $this->getParameters();
 
-        $objective = new ObjectiveEntity();
-        $objective->setId($body->objective_id);
-        $objective->setTitle($body->title);
-        $objective->setDescription($body->description);
+        $objectiveEntity = Entity::createEntityFromSdtClass($body, ObjectiveEntity::class);
 
-        (new ObjectiveRepository())->edit($objective);
+        (new ObjectiveRepository())->edit($objectiveEntity);
 
         $this->responseJson([]);
     }

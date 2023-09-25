@@ -3,9 +3,9 @@
 namespace App\Http\Site\Login;
 
 use App\Http\Site\AbstractControllerSite;
-use App\Service\Session;
+use App\Utils\Session;
 
-class LoginControllerSite extends AbstractControllerSite
+class Login extends AbstractControllerSite
 {
     /**
      * @return string

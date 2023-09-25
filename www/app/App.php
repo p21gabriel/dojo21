@@ -51,17 +51,7 @@ class App
      */
     public function run(): void
     {
-        $this->defineConstants();
-
         (new Router())->route();
-    }
-
-    /**
-     * @return void
-     */
-    private function defineConstants(): void
-    {
-        define("ROOT_DIR", str_replace('/app', '', __DIR__));
     }
 
     /**

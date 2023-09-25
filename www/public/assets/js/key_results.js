@@ -1,4 +1,4 @@
-let KeyResult = (() => {
+let KeyResult = (function() {
     let title = $("#title");
     let objective_id = $("#objective_id");
     let description = $("#description");
@@ -28,7 +28,7 @@ let KeyResult = (() => {
         return true;
     };
 
-    let handleAdd = () => {
+    let handleAdd = function() {
         $('#add').on("click", function (event) {
             if (!validateForm()) {
                 return false;
@@ -45,6 +45,7 @@ let KeyResult = (() => {
                 dataType: "json",
                 data: keyResultForm,
                 success: function (data) {
+                    console.log(data)
                     Global.redirect("/dashboard")
                 },
                 error: function (data) {
@@ -56,7 +57,7 @@ let KeyResult = (() => {
         });
     }
 
-    let handleEdit = () => {
+    let handleEdit = function() {
         $('#edit').on("click", function (event) {
             if (!validateForm()) {
                 return false;
@@ -73,6 +74,7 @@ let KeyResult = (() => {
                 dataType: "json",
                 data: keyResultForm,
                 success: function (data) {
+                    // console.log(data)
                     Global.redirect("/dashboard")
                 },
                 error: function (data) {
@@ -84,7 +86,7 @@ let KeyResult = (() => {
         });
     }
 
-    let handleDelete = () => {
+    let handleDelete = function() {
         $('.delete').on("click", function (event) {
             event.preventDefault();
 

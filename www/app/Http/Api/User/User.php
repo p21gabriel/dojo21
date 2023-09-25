@@ -2,11 +2,13 @@
 
 namespace App\Http\Api\User;
 
+use App\Entity\Objective\ObjectiveEntity;
 use App\Entity\User\UserEntity;
+use App\Factory\Entity\Entity;
 use App\Http\Api\AbstractControllerApi;
 use App\Repository\User\UserRepository;
 
-class UserControllerApi extends AbstractControllerApi
+class User extends AbstractControllerApi
 {
     /**
      * @return void
@@ -22,10 +24,7 @@ class UserControllerApi extends AbstractControllerApi
             ], 500);
         }
 
-        $userEntity = new UserEntity();
-        $userEntity->setName($body->name);
-        $userEntity->setEmail($body->email);
-        $userEntity->setPassword($body->password);
+        $userEntity = Entity::createEntityFromSdtClass($body, UserEntity::class);
 
         (new UserRepository())->save($userEntity);
 

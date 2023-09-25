@@ -2,28 +2,56 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ assets('css/common.css') }}?v={{ version() }}">
-    <link rel="stylesheet" href="{{ assets('css/cadastro.css') }}?v={{ version() }}">
+    <link rel="stylesheet" href="{{ assets('css/style.css') }}?v={{ version() }}">
     <title>Dojo21 | Cadastro</title>
 </head>
 <body>
-<main class="container">
-    <section id="cadastro_section" class="text-center">
+<main class="container" id="signup">
+    <section id="signup-section" class="text-center">
         <h2>Criar usuário</h2>
         <form method="POST" id="user-form">
-            <div class="">
-                <input autocomplete="off" type="text" placeholder="Usuário" name="name" id="name" value="">
+            <div class="text-left">
+                <label for="name">Nome</label>
+                <input
+                    class="input-login-singup"
+                    autocomplete="off"
+                    type="text"
+                    placeholder="Usuário"
+                    name="name"
+                    id="name"
+                    value=""
+                    autofocus
+                >
             </div>
-            <div class="">
-                <input autocomplete="off" type="email" placeholder="E-mail (email@gmail.com)" id="email" name="email" value="">
+
+            <div class="text-left">
+                <label for="email">E-mail</label>
+                <input
+                    class="input-login-singup"
+                    autocomplete="off"
+                    type="email"
+                    placeholder="E-mail (email@gmail.com)"
+                    id="email"
+                    name="email"
+                    value=""
+                >
             </div>
-            <div>
-                <input autocomplete="off" type="password" placeholder="Senha" id="password" name="password" value="">
+            <div class="text-left">
+                <label for="password">Senha</label>
+                <input
+                    class="input-login-singup"
+                    autocomplete="off"
+                    type="password"
+                    placeholder="Senha"
+                    id="password"
+                    name="password"
+                    value=""
+                >
             </div>
 
             <div>
-                <a href="#" id="cadastrar" type="button" class="btn">Cadastrar</a>
-                <a href="/login" type="button" class="btn">Login</a>
+                <a href="#" id="cadastrar" class="btn btn-block">Cadastrar</a>
+                <a href="/login" class="btn btn-block">Login</a>
             </div>
         </form>
     </section>

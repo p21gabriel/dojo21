@@ -4,9 +4,9 @@ namespace App\Http\Site\KeyResult;
 
 use App\Http\Site\AbstractControllerSite;
 use App\Repository\Objective\ObjectiveRepository;
-use App\Service\Session;
+use App\Utils\Session;
 
-class KeyResultControllerSite extends AbstractControllerSite
+class KeyResult extends AbstractControllerSite
 {
     /**
      * @param array $args

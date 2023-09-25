@@ -3,14 +3,14 @@
 namespace App\Http\Site;
 
 use App\Http\AbstractController;
-use App\View\View;
+use App\View\Render;
 
 abstract class AbstractControllerSite extends AbstractController
 {
     /**
-     * @var View
+     * @var Render
      */
-    private View $view;
+    private Render $view;
 
     /**
      *
@@ -18,7 +18,7 @@ abstract class AbstractControllerSite extends AbstractController
     public function __construct()
     {
         parent::__construct();
-        $this->view = new View(ROOT_DIR . '/resources/views');
+        $this->view = new Render(ROOT_DIR . '/resources/views');
     }
 
     /**

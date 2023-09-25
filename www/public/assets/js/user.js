@@ -1,4 +1,4 @@
-let User = (() => {
+let User = (function() {
     let name = $("#name");
     let email = $("#email");
     let password = $("#password");
@@ -22,7 +22,7 @@ let User = (() => {
         return true;
     };
 
-    let handleForm = () => {
+    let handleForm = function() {
         $('#cadastrar').on("click", function (event) {
             if (!validateForm()) {
                 return false;

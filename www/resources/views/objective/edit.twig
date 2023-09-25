@@ -1,56 +1,50 @@
 {% extends "layout/layout" %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/objective.css') }}?v={{ version() }}">
-{% endblock styles %}
-
-
 {% block title %}
     Dojo21 | Editar objetivo
 {% endblock title %}
 
 
 {% block content %}
-    <section id="okr" class="text-center">
-        <h2>Editar objetivo</h2>
-    </section>
+    <section id="objectives" class="main-section-page">
+        <h2 class="page-title">Editar objetivo</h2>
 
-    <section id="objectives" class="mt-50">
-        <section id="okr" class="text-center mt-10">
-            <form method="POST" id="objective-form-edit" class="form">
-                <input type="hidden" name="objective_id" value="{{ $objective->getId() }}">
+        <form method="POST" id="objective-form-edit" class="form">
+            <input type="hidden" name="objective_id" value="{{ $objective->getId() }}">
 
-                <div class="">
-                    <input
-                        placeholder="Digite um título"
-                        type="text"
-                        name="title"
-                        id="title"
-                        value="{{ $objective->getTitle() }}"
-                    >
-                </div>
+            <div class="text-left">
+                <label class="input-label" for="title">Título</label><input
+                    placeholder="Digite um título"
+                    type="text"
+                    name="title"
+                    id="title"
+                    class="input-control"
+                    value="{{ $objective->getTitle() }}"
+                >
+            </div>
 
-                <div class="">
-                    <input
-                        placeholder="Descreva seu objetivo"
-                        type="text"
-                        id="description"
-                        name="description"
-                        value="{{ $objective->getDescription() }}"
-                    >
-                </div>
+            <div class="text-left">
+                <label class="input-label" for="description">Descrição</label>
+                <input
+                    placeholder="Descreva seu objetivo"
+                    type="text"
+                    id="description"
+                    name="description"
+                    class="input-control"
+                    value="{{ $objective->getDescription() }}"
+                >
+            </div>
 
-                <div class="mt-20">
-                    <a href="#" id="edit" class="btn" type="button">
-                        Salvar
-                    </a>
+            <div class="mt-20">
+                <a href="#" id="edit" class="btn btn-block" type="button">
+                    Salvar
+                </a>
 
-                    <a href="/objective" class="btn" type="button">
-                        Voltar
-                    </a>
-                </div>
-            </form>
-        </section>
+                <a href="/objective" class="btn btn-block" type="button">
+                    Voltar
+                </a>
+            </div>
+        </form>
     </section>
 {% endblock content %}
 

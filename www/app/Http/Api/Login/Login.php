@@ -4,9 +4,9 @@ namespace App\Http\Api\Login;
 
 use App\Http\Api\AbstractControllerApi;
 use App\Service\Auth;
-use App\Service\Session;
+use App\Utils\Session;
 
-class LoginControllerApi extends AbstractControllerApi
+class Login extends AbstractControllerApi
 {
     /**
      * @return void

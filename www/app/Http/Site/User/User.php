@@ -4,7 +4,7 @@ namespace App\Http\Site\User;
 
 use App\Http\Site\AbstractControllerSite;
 
-class UserControllerSite extends AbstractControllerSite
+class User extends AbstractControllerSite
 {
     /**
      * @return string

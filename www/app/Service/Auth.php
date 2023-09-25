@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\User\UserEntity;
 use App\Repository\User\UserRepository;
+use App\Utils\Session;
 
 class Auth
 {

@@ -1,77 +1,64 @@
 {% extends "layout/layout" %}
 
-
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/key_result.css') }}?v={{ version() }}">
-{% endblock styles %}
-
-
 {% block title %}
     Dojo21 | Editar resultado chave
 {% endblock title %}
 
 
 {% block content %}
-    <section id="key_result">
+    <section class="main-section-page">
         <h1 class="text-center">Adicionar key results</h1>
 
         <form method="POST" id="key-result-form-edit" class="mt-20">
 
-            <input type="hidden" name="key_result_id" value="{{ $keyResult->getId() }}">
-            <div>
-                <label for="title">
-                    <span>Título</span>
-                    <input
-                        placeholder="Digite o título do seu objetivo chave"
-                        type="text"
-                        name="title"
-                        id="title"
-                        value="{{ $keyResult->getTitle() }}"
-                    >
-                </label>
+            <input type="hidden" name="id" value="{{ $keyResult->getId() }}">
+
+            <div class="text-left">
+                <label class="input-label" for="title">Título</label>
+                <input
+                    placeholder="Digite o título do seu objetivo chave"
+                    type="text"
+                    name="title"
+                    id="title"
+                    class="input-control"
+                    value="{{ $keyResult->getTitle() }}"
+                >
             </div>
 
-            <div class="mt-20">
-                <label for="objective">
-                    <span>Objetivo</span><br>
-
-                </label>
-                <select name="objective_id" id="objective_id" class="mt-6">
+            <div class="mt-20 text-left">
+                <label for="objective_id" class="input-label">Objetivo</label>
+                <select name="objective_id" id="objective_id" class="mt-6 select-control">
                     <option selected value="{{ $objective->getId() }}">{{ $objective->getTitle() }}</option>
                 </select>
             </div>
 
-            <div class="mt-20">
-                <label for="description">
-                    <span>Descrição</span>
-                    <input
-                        placeholder="Forneça uma descrição"
-                        type="text"
-                        id="description"
-                        name="description"
-                        value="{{ $keyResult->getDescription() }}"
-                    >
-                </label>
+            <div class="mt-20 text-left">
+                <label class="input-label" for="description">Descrição</label>
+
+                <input
+                    placeholder="Forneça uma descrição"
+                    type="text"
+                    id="description"
+                    name="description"
+                    class="input-control"
+                    value="{{ $keyResult->getDescription() }}"
+                >
             </div>
 
-            <div class="mt-20">
-                <label for="type">
-                    <span>Tipo</span><br>
-
-
-                </label>
-                <select id="type" name="type" class="mt-6">
+            <div class="mt-20 text-left">
+                <label class="input-label" for="type">Tipo</label>
+                <select id="type" name="type" class="mt-6 select-control">
                     <option {{ $keyResult->getType() == 1 ? 'selected' : '' }} value="1">Milestone</option>
                     <option {{ $keyResult->getType() == 2 ? 'selected' : '' }} value="2">Porcentagem</option>
                 </select>
             </div>
 
             <div class="mt-20">
-                <a href="#" id="edit" class="btn">
+                <a href="#" id="edit" class="btn btn-block">
                     Atualizar
                 </a>
 
-                <a href="/objective/{{ $objective->getId() }}/key_results" class="btn" >
+                <a href="/objective/{{ $objective->getId() }}/key_results" class="btn btn-block" >
                     Voltar
                 </a>
             </div>

@@ -1,27 +1,18 @@
 {% extends "layout/layout" %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/key_result.css') }}?v={{ version() }}">
-{% endblock styles %}
-
-
 {% block title %}
     Dojo21 | Resultados chave
 {% endblock title %}
 
 
 {% block content %}
-    <section id="okr" class="text-center">
-        <h2>Meus Key objetivos</h2>
-    </section>
+    <section class="mt-50 main-section-page">
+        <h2 class="page-title">Meus Key objetivos</h2>
 
-    <section class="mt-50">
-        <div id="adicionar" class="text-right">
-            <a class="green" href="/objective/{{ $objective->getId() }}/key_results/add">Adicionar</a>
+        <div class="adicionar">
+            <a class="green pull-right" href="/objective/{{ $objective->getId() }}/key_results/add">Adicionar</a>
         </div>
-        <table class="text-center">
-            <div id="adicionar" class="text-right">
-            </div>
+        <table class="text-center table-control">
             <thead>
                 <tr>
                     <th colspan="4">{{ $objective->getTitle() }}</th>
@@ -42,14 +33,16 @@
                         <td class="text-left">{{ $keyResult->formatType() }}</td>
                         <td class="text-left">{{ $keyResult->getDescription() }}</td>
                         <td class="text-left">
-                            <a class="yellow" href="/objective/{{ $objective->getId() }}/key_results/{{ $keyResult->getId() }}/edit">Editar</a>
-                            <a class="red delete" href="#" data-id="{{ $keyResult->getId() }}">Remover</a>
+                            <a class="btn btn-table yellow" href="/objective/{{ $objective->getId() }}/key_results/{{ $keyResult->getId() }}/edit">Editar</a>
+                            <a class="btn btn-table red delete" href="#" data-id="{{ $keyResult->getId() }}">Remover</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
-        <div class="mt-50">
+
+        <br>
+        <div class="voltar">
             <a href="/objective" class="btn btn-block">Voltar</a>
         </div>
     </section>

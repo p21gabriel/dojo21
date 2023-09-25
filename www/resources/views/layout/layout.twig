@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ assets('css/common.css') }}?v={{ version() }}">
+    <link rel="stylesheet" href="{{ assets('css/style.css') }}?v={{ version() }}">
 
     {% block styles %}{% endblock styles %}
 
@@ -18,7 +18,7 @@
     </ul>
 </nav>
 
-<main>
+<main class="container">
     {% block content %}{% endblock content %}
 </main>
 

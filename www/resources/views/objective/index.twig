@@ -1,22 +1,13 @@
 {% extends "layout/layout" %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/objective.css') }}?v={{ version() }}">
-{% endblock styles %}
-
-
 {% block title %}Dojo21 | Meus objetivos{% endblock title %}
 
-
 {% block content %}
-    <section id="okr" class="text-center">
-        <h2>Meus objetivos</h2>
-    </section>
+    <section id="objectives" class="mt-50 main-section-page">
+        <h2 class="page-title">Meus objetivos</h2>
 
-    <section id="objectives" class="mt-50">
-
-        <table class="text-center">
-            <div id="adicionar" class="text-right">
+        <table class="text-center table-control">
+            <div class="text-right adicionar">
                 <a class="blue" href="/dashboard">Dashboard</a>
                 <a class="green" href="/objective/add">Adicionar</a>
             </div>
@@ -34,10 +25,10 @@
                         <td class="text-left">{{ $objective->getTitle() }}</td>
                         <td class="text-left">{{ $objective->getDescription() }}</td>
                         <td class="text-left">
-                            <a class="yellow" href="/objective/{{ $objective->getId() }}/edit">Editar</a>
-                            <a class="blue" href="/objective/{{ $objective->getId() }}/key_results">Resultados chave</a>
+                            <a class="btn btn-table blue" href="/objective/{{ $objective->getId() }}/key_results">Resultados chaves</a>
+                            <a class="btn btn-table yellow" href="/objective/{{ $objective->getId() }}/edit">Editar</a>
                             <?php if(!$objective->getKeyResults()): ?>
-                                <a class="red delete" href="#" data-id="{{ $objective->getId() }}">Remover</a>
+                                <a class="btn btn-table red delete" href="#" data-id="{{ $objective->getId() }}">Remover</a>
                             <?php endif ?>
                         </td>
                     </tr>

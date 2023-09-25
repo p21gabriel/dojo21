@@ -2,7 +2,7 @@
 
 namespace App\View;
 
-class View
+class Render
 {
     /**
      * @var string

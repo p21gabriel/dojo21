@@ -4,9 +4,9 @@ namespace App\Http\Site\Objective;
 
 use App\Http\Site\AbstractControllerSite;
 use App\Repository\Objective\ObjectiveRepository;
-use App\Service\Session;
+use App\Utils\Session;
 
-class ObjectiveControllerSite extends AbstractControllerSite
+class Objective extends AbstractControllerSite
 {
     /**
      * @return string

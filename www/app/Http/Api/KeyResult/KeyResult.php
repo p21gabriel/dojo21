@@ -3,11 +3,12 @@
 namespace App\Http\Api\KeyResult;
 
 use App\Entity\KeyResult\KeyResultEntity;
+use App\Factory\Entity\Entity;
 use App\Http\Api\AbstractControllerApi;
 use App\Repository\KeyResult\KeyResultRepository;
-use App\Service\Session;
+use App\Utils\Session;
 
-class KeyResultControllerApi extends AbstractControllerApi
+class KeyResult extends AbstractControllerApi
 {
     /**
      * @return void
@@ -16,11 +17,7 @@ class KeyResultControllerApi extends AbstractControllerApi
     {
         $body = $this->getParameters();
 
-        $keyResultEntity = new KeyResultEntity();
-        $keyResultEntity->setDescription($body->description);
-        $keyResultEntity->setType($body->type);
-        $keyResultEntity->setTitle($body->title);
-        $keyResultEntity->setObjectiveId($body->objective_id);
+        $keyResultEntity = Entity::createEntityFromSdtClass($body, KeyResultEntity::class);
 
         (new KeyResultRepository())->save($keyResultEntity);
 
@@ -36,12 +33,7 @@ class KeyResultControllerApi extends AbstractControllerApi
     {
         $body = $this->getParameters();
 
-        $keyResultEntity = new KeyResultEntity();
-        $keyResultEntity->setId($body->key_result_id);
-        $keyResultEntity->setDescription($body->description);
-        $keyResultEntity->setType($body->type);
-        $keyResultEntity->setTitle($body->title);
-        $keyResultEntity->setObjectiveId($body->objective_id);
+        $keyResultEntity = Entity::createEntityFromSdtClass($body, KeyResultEntity::class);
 
         (new KeyResultRepository())->edit($keyResultEntity);
 

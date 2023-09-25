@@ -1,9 +1,5 @@
 {% extends "layout/layout" %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/dashboard.css') }}?v={{ version() }}">
-{% endblock styles %}
-
 {% block title %}
     Dojo21 | Dashboard
 {% endblock title %}
@@ -21,20 +17,24 @@
         </div>
     </section>
 
-    <section id="objectives" class="meus-objetivos">
-        <h1 class="mb-20 text-center">Meus objetivos</h1>
+    <section id="objectives-section" class="my-objectives main-section-page">
+        <h1 class="page-title">Meus objetivos</h1>
 
-        <div class="objectives">
+        <div class="objectives-list">
             <?php foreach ($objectives as $objective): ?>
             <div class="objective">
-                <div class="title">
-                    <h3><a href="/objective/{{ $objective->getId() }}/edit">{{ $objective->getTitle() }}</a></h3>
-                    <p>{{ $objective->getDescription() }}</p>
+                <div class="objective-title-section">
+                    <h3 class="objective-title-text">
+                        <a href="/objective/{{ $objective->getId() }}/edit">{{ $objective->getTitle() }}</a>
+                    </h3>
+                    <p class="objective-title-description">{{ $objective->getDescription() }}</p>
                 </div>
 
-                <hr>
-                <h4 class="text-center"><a href="/objective/{{ $objective->getId() }}/key_results">Key Results</a></h4>
-                <hr>
+                <hr class="objective-separator">
+                <h4 class="text-center">
+                    <a href="/objective/{{ $objective->getId() }}/key_results">Key Results</a>
+                </h4>
+                <hr class="objective-separator">
 
                 <?php foreach ($objective->getKeyResults() as $keyResult): ?>
                     <div class="key_result">

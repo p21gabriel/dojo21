@@ -2,7 +2,7 @@
 
 namespace App\Router;
 
-use App\Service\Session;
+use App\Utils\Session;
 
 class Router
 {

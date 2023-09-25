@@ -1,63 +1,46 @@
 {% extends "layout/layout" %}
 
-
-{% block styles %}
-    <link rel="stylesheet" href="{{ assets('css/key_result.css') }}?v={{ version() }}">
-{% endblock styles %}
-
-
 {% block title %}
     Dojo21 | Adicionar resultado chave
 {% endblock title %}
 
 
 {% block content %}
-    <section id="key_result">
-        <h1 class="text-center">Adicionar key results</h1>
+    <section class="main-section-page">
+        <h1 class="text-center page-title">Adicionar key results</h1>
 
         <form method="POST" id="key-result-form-add" class="mt-20">
-            <div>
-                <label for="title">
-                    <span>Título</span>
-                    <input placeholder="Digite o título do seu objetivo chave" type="text" name="title" id="title" value="">
-                </label>
+            <div class="text-left">
+                <label class="input-label" for="title">Título</label>
+                <input class="input-control" placeholder="Digite o título do seu objetivo chave" type="text" name="title" id="title" value="">
             </div>
 
-            <div class="mt-20">
-                <label for="objective">
-                    <span>Objetivo</span><br>
-
-                </label>
-                <select name="objective_id" id="objective_id" class="mt-6">
+            <div class="mt-20 text-left">
+                <label class="input-label" for="objective_id">Objetivo</label>
+                <select name="objective_id" id="objective_id" class="mt-6 select-control">
                     <option selected value="{{ $objective->getId() }}">{{ $objective->getTitle() }}</option>
                 </select>
             </div>
 
-            <div class="mt-20">
-                <label for="description">
-                    <span>Descrição</span>
-                    <input placeholder="Forneça uma descrição" type="text" id="description" name="description">
-                </label>
+            <div class="mt-20 text-left">
+                <label class="input-label" for="description">Descrição</label>
+                <input class="input-control" placeholder="Forneça uma descrição" type="text" id="description" name="description">
             </div>
 
-            <div class="mt-20">
-                <label for="type">
-                    <span>Tipo</span><br>
-
-
-                </label>
-                <select id="type" name="type" class="mt-6">
+            <div class="mt-20 text-left">
+                <label class="input-label" for="type">Tipo</label>
+                <select id="type" name="type" class="mt-6 select-control">
                     <option value="1">Milestone</option>
                     <option value="2">Porcentagem</option>
                 </select>
             </div>
 
             <div class="mt-20">
-                <a href="#" id="add" class="btn">
+                <a href="#" id="add" class="btn btn-block">
                     Salvar
                 </a>
 
-                <a href="/objective/{{ $objective->getId() }}/key_results" class="btn" >
+                <a href="/objective/{{ $objective->getId() }}/key_results" class="btn btn-block" >
                     Voltar
                 </a>
             </div>

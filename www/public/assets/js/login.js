@@ -1,14 +1,8 @@
-let Login = (() => {
-    let validateForm = () => {
-
-    }
-
-    let handleForm = () => {
+let Login = (function() {
+    let handleForm = function() {
         $('#logar').on("click", function (event) {
             event.preventDefault();
             let loginForm = $("#login-form").serialize();
-
-            validateForm();
 
             $.ajax({
                 url: '/user/login',
